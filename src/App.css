@@ -1,38 +1,175 @@
-.App {
-  text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #151515;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2 {
+  color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+form {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="file"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.button-container {
   display: flex;
-  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+}
+
+button[type="button"] {
+  background-color: #008CBA;
+}
+
+button.delete-pair {
+  background-color: #f44336;
+  margin-left: 10px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#download-links a, #relevant-results a {
+  display: block;
+  margin: 10px 0;
+  color: #008CBA;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#category-query-container {
+  margin-bottom: 20px;
+}
+
+.category-query-pair {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.category-query-pair input[type="text"] {
+  width: calc(50% - 30px);
+  margin-right: 10px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #ccc;
+  margin: 40px 0;
+}
+
+/* Loading screen styles */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 1000;
 }
 
-.App-link {
-  color: #61dafb;
+/* .loading-overlay .spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+} */
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* Hidden section styles */
+#process-relevant-only-section {
+  display: none;
+}
+.neon-block {
+  .block {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px auto;
+    width: 600px;
+    height: auto;
+    background: linear-gradient(45deg, #272325 40%, #020104);
+    color: #fff;
+    font-size: 20px;
+    /* text-transform: uppercase; */
+    letter-spacing: 1px;
+    font-family: monospace;
+    &:after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      bottom: -2px;
+      left: -2px;
+      z-index: -1;
+      background: linear-gradient(45deg, #3371ff, #4cd60b);
+      animation: neon-block 1.5s linear infinite;
+    }
+    .rainbow {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+      filter: blur(15px);
+      z-index: -2;
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(315deg, #3371ff, #4cd60b);
+      }
+      &:after {
+        animation: neon-block 1.5s linear infinite;
+      }
+    }
   }
 }
